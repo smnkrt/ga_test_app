@@ -1,0 +1,7 @@
+<h2>Ratings</h2>
+
+<%= simple_form_for @form, url: wizard_path do |f| %>
+  <%= f.input  :rating_1, collection: 1..5, as: :radio_buttons %>
+  <%= f.input  :rating_2, collection: 1..5, as: :select %>
+  <%= f.button :submit %>
+<% end %>

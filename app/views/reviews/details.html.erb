@@ -1,0 +1,7 @@
+<h2>Details</h2>
+
+<%= simple_form_for @form, url: wizard_path do |f| %>
+  <%= f.input  :name %>
+  <%= f.input  :age %>
+  <%= f.button :submit, as: :boolean %>
+<% end %>

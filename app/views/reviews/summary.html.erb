@@ -1,0 +1,7 @@
+<h2>Summary</h2>
+
+<%= simple_form_for @form, url: wizard_path do |f| %>
+  <%= f.input  :comments %>
+  <%= f.input  :terms_accepted, as: :boolean %>
+  <%= f.button :submit %>
+<% end %>
