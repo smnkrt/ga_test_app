@@ -13,11 +13,7 @@ class ReviewsController < ApplicationController
 
   def update
     prepare_form_for_step
-    if @form.process(form_params)
-      redirect_to success_path
-    else
-      render_wizard
-    end
+    form_valid? ? proceed : render_wizard
   end
 
   def finish
@@ -34,6 +30,10 @@ class ReviewsController < ApplicationController
     @form = Reviews::FormForStep.new(step, session[:review_id]).form
   end
 
+  def form_valid?
+    @form.process(form_params)
+  end
+
   def store_review_id_in_session
     session[:review_id] = @form.model.id
   end
@@ -43,8 +43,8 @@ class ReviewsController < ApplicationController
     params.fetch(key_name, {})
   end
 
-  def success_path
-    return finish_reviews_path if next_step?(:finish)
-    next_wizard_path
+  def proceed
+    path = next_step?(:finish) ? finish_reviews_path : next_wizard_path
+    redirect_to(path)
   end
 end
