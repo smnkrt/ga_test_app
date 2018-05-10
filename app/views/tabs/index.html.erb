@@ -1,0 +1,24 @@
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+  trackTab = function(pageName) {
+    ga('create', 'UA-117182339-1', 'auto');
+    ga('set', 'page', pageName);
+    ga('send', 'pageview');
+  }
+
+  $( function() { $( "#tabs" ).tabs(); } );
+</script>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1" onclick="trackTab(this)">tab-1</a></li>
+    <li><a href="#tabs-2" onclick="trackTab(this)">tab-2</a></li>
+    <li><a href="#tabs-3" onclick="trackTab(this)">tab-3</a></li>
+  </ul>
+  <div id="tabs-1"><p>tab_1_content</p></div>
+  <div id="tabs-2"><p>tab_2_content</p></div>
+  <div id="tabs-3"><p>tab_3_content</p></div>
+</div>

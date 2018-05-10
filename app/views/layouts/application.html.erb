@@ -19,5 +19,9 @@
 
   <body>
     <%= yield %>
+    <ul>
+      <li><%= link_to 'virtual pageviews', tabs_index_path %></li>
+      <li><%= link_to 'multi step form', reviews_path %></li>
+    </ul>
   </body>
 </html>
