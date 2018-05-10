@@ -11,6 +11,11 @@ module Tracking
         hostname: @host_with_port,
         title: 'Reviews view'
       )
+      tracker.event(
+        category: @params[:controller],
+        action:   @params[:action],
+        label:    @params[:id]
+      )
     end
 
     private
